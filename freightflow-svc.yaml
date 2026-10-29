@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: freightflow-api-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: freightflow
+  ports:
+  - port: 80
+    targetPort: 80

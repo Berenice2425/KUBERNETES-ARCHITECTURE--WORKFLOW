@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: freightflow-api
+  labels:
+    app: freightflow-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: freightflow-api
+  template:
+    metadata:
+      labels:
+        app: freightflow-api
+    spec:
+      containers:
+      - name: api
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
